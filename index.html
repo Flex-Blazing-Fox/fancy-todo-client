@@ -15,15 +15,19 @@
   <!-- NAVBAR -->
   <div class="flex flex-row items-center justify-between gap-2 bg-gray-800 px-4 py-3 border-b-[1px] border-gray-900 shadow-2xl">
     <span class="font-bold text-xl">Fancy Todo App</span>
-    <div class="flex flex-row justify-end gap-2 items-center">
-      <div class="text-white font-semibold">Hi, <span id="user" class="font-bold">Arjun</span></div>
+    <div id="welcomeText" class="flex flex-row justify-end gap-2 items-center">
+      <div class="text-white font-semibold">Hi, <span id="user" class="font-bold"></span></div>
       <div id="avatar" class="w-8 h-8 bg-blue-400 rounded-full bg-cover max-w-full"></div>
     </div>
-    <a id="logoutBtn" href="#" class="bg-red-400 rounded-xl px-3 py-1 font-bold">Logout</a>
+    <div>
+      <a id="loginBtn" href="#" class="bg-blue-400 rounded-xl px-3 py-1 font-bold">Login</a>
+      <a id="logoutBtn" href="#" class="bg-red-400 rounded-xl px-3 py-1 ml-3 font-bold">Logout</a>
+      <a id="signUpBtn" href="#" class="bg-green-400 rounded-xl px-3 py-1 ml-3 font-bold">Sign Up</a>
+    </div>
   </div>
 
   <!-- MAIN CONTENT -->
-  <div class="grid grid-cols-5 gap-4">
+  <div id="mainContent" class="grid grid-cols-5 gap-4">
     <!-- Sidebar -->
     <div class="col-span-1 bg-gray-800 h-screen flex flex-col">
       <div class="flex flex-row gap-2 bg-gray-700 p-4">
@@ -96,7 +100,33 @@
     </div>
   </div>
 
-  <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js" integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin="anonymous"></script>
+  <!-- SIGN UP PAGE -->
+  <div id="signUpPage" class="grid p-5 items-center justify-center align-center mx-auto max-w-sm rounded-xl h-[500px]">
+    <form class="flex flex-col min-w-full">
+      <h2 class="mb-6 font-bold text-center text-2xl text-gray-300">Register</h2>
+      <input id="signupEmail" class="border border-transparent focus:outline-none focus:ring-2 focus:ring-red-400 bg-gray-800 focus:border-transparent rounded-3xl py-2 px-4 w-full mb-5 focus:caret-gray-100" name="email" type="email" placeholder="Email">
+      <input id="signupPassword" class="border border-transparent focus:outline-none focus:ring-2 focus:ring-red-400 bg-gray-800 focus:border-transparent rounded-3xl py-2 px-4 w-full mb-5 focus:caret-gray-100" name="password" type="password" placeholder="Password">
+
+      <button id="submitRegisterBtn" class="bg-red-400 hover:bg-red-400 focus:outline-none focus:ring-2 focus:ring-red-400 focus:ring-opacity-50 px-4 py-2 rounded-3xl">
+        Sign up
+      </button>
+    </form>
+  </div>
+
+  <!-- LOGIN PAGE -->
+  <div id="loginPage" class="grid p-5 items-center justify-center align-center mx-auto max-w-sm rounded-xl h-[500px]">
+    <form class="flex flex-col min-w-full">
+      <h2 class="mb-6 font-bold text-center text-2xl text-gray-300">Login</h2>
+      <input id="loginEmail" class="border border-transparent focus:outline-none focus:ring-2 focus:ring-red-400 bg-gray-800 focus:border-transparent rounded-3xl py-2 px-4 w-full mb-5 focus:caret-gray-100" name="email" type="email" placeholder="Email">
+      <input id="loginPassword" class="border border-transparent focus:outline-none focus:ring-2 focus:ring-red-400 bg-gray-800 focus:border-transparent rounded-3xl py-2 px-4 w-full mb-5 focus:caret-gray-100" name="password" type="password" placeholder="Password">
+
+      <button id="submitLoginBtn" class="bg-red-400 hover:bg-red-400 focus:outline-none focus:ring-2 focus:ring-red-400 focus:ring-opacity-50 px-4 py-2 rounded-3xl">
+        Log in
+      </button>
+    </form>
+  </div>
+
+  <script src="./src/jquery-3.6.0.js"></script>
   <script type="module" src="./src/app.js"></script>
 </body>
 </html>

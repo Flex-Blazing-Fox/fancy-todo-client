@@ -1,78 +1,55 @@
-<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="shortcut icon" href="#" />
+    <title>Login project</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"
+    />
     <link rel="stylesheet" href="./public/css/tailwind.css" />
-    <title>Document</title>
   </head>
-  <body class="bg-gray-200">
-    <main class="h-screen flex justify-center items-center">
-      <div class="flex flex-col relative w-full m-7">
-        <div class="bg-red-500 text-white sm:rounded-md p-5 shadow-2xl mt-7">
-          <h2 class="text-2xl">Fancy Todo App</h2>
-          <p>Your Fancy Todo App</p>
-          <p class="text-xs sm:mt-32">Your Fancy Todo App</p>
-        </div>
-        <div
-          class="
-            sm:absolute
-            right-12
-            bg-white
-            sm:rounded-md
-            p-2
-            sm:w-44
-            flex flex-col
-            justify-center
-            items-center
-          "
+  <body>
+    <img
+      src="Assets/wave.png"
+      class="fixed hidden lg:block inset-0 h-full"
+      style="z-index: -1;"
+    />
+    <div
+      class="w-screen h-screen flex flex-col justify-center items-center lg:grid lg:grid-cols-2"
+    >
+      <img
+        src="Assets/unlock.svg"
+        class="hidden lg:block w-1/2 hover:scale-150 transition-all duration-500 transform mx-auto"
+      />
+      <form class="flex flex-col justify-center items-center w-1/2">
+        <img src="Assets/avatar.svg" class="w-32" />
+        <h2
+          class="my-8 font-display font-bold text-3xl text-gray-700 text-center"
         >
-          <h2 class="text-red-500 mb-3 text-sm font-bold">Login</h2>
-          <div class="bg-red-500 shadow-xl rounded-full w-12 h-12 mb-4"></div>
+          Welcome to you
+        </h2>
+        <div class="relative">
+          <i class="fa fa-user absolute text-primarycolor text-xl"></i>
           <input
-            class="
-              text-xs
-              w-full
-              p-1
-              focus:outline-none
-              border-b-2 border-grey-600
-              focus:border-red-500
-              bg-transparent
-            "
             type="text"
-            placeholder="Enter email"
+            placeholder="username"
+            class="pl-8 border-b-2 font-display focus:outline-none focus:border-primarycolor transition-all duration-500 capitalize text-lg"
           />
-          <input
-            class="
-              text-xs
-              w-full
-              p-1
-              focus:outline-none
-              border-b-2 border-grey-600
-              focus:border-red-500
-              bg-transparent
-              mb-2
-            "
-            type="text"
-            placeholder="Enter password"
-          />
-          <button
-            class="
-              bg-red-500
-              hover:bg-red-600
-              text-xs text-white
-              w-full
-              mt-4
-              mb-7
-              focus:outline-none
-              p-2
-            "
-          >LOGIN</button>
-          <a href="#" class="text-red-500 mb-5 text-xs">Forgot Password?</a>
         </div>
-      </div>
-    </main>
+        <div class="relative mt-8">
+          <i class="fa fa-lock absolute text-primarycolor text-xl"></i>
+          <input
+            type="password"
+            placeholder="password"
+            class="pl-8 border-b-2 font-display focus:outline-none focus:border-primarycolor transition-all duration-500 capitalize text-lg"
+          />
+        </div>
+        <a
+          href="#"
+          class="py-3 px-20 bg-black rounded-full text-white font-bold uppercase text-lg mt-4 transform hover:translate-y-1 transition-all duration-500"
+          >Login</a
+        >
+      </form>
+    </div>
   </body>
 </html>

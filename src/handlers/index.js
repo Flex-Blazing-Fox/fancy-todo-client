@@ -36,6 +36,7 @@ export const submitLogin = (e) => {
       $('#loginEmail').val('')
       $('#loginPassword').val('')
       localStorage.setItem('access_token', token)
+      localStorage.setItem('email', email)
       homePage(email)
     })
     .fail(({ responseJSON }) => {
@@ -49,5 +50,38 @@ export const submitLogout = (e) => {
   e.preventDefault()
 
   localStorage.removeItem('access_token')
+  localStorage.removeItem('email')
+
+  // $('#todos').empty()
+  $('#user').empty()
+  // $('#avatar').empty()
+
   loginPage()
+}
+
+export const submitAddForm = (e) => {
+  e.preventDefault()
+
+  let title = $('#inputAddTitle').val()
+  let description = $('#inputAddDesc').val()
+  let due_date = $('#inputAddDate').val()
+
+  $.ajax({
+    url: 'http://localhost:5000/todos',
+    method: 'POST',
+    headers: { token: localStorage.getItem('access_token') },
+    data: { title, description, due_date }
+  })
+    .done(todo => {
+      $('#inputAddTitle').val('')
+      $('#inputAddDesc').val('')
+      $('#inputAddDate').val('')
+
+      homePage(localStorage.getItem('email'))
+    })
+    .fail(({ responseJSON }) => {
+      $('#addForm').after(`
+        <p class="text-center text-red-400">${responseJSON.err}</p>
+      `)
+    })
 }

@@ -9,6 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+  <meta name="google-signin-client_id" content="274438169285-f6rjg9k768m68v3sdhnbec017r1c3r3v.apps.googleusercontent.com">
 </head>
 <body class="bg-gray-900 text-white font-nunito">
 
@@ -73,7 +74,7 @@
   </div>
 
   <!-- SIGN UP PAGE -->
-  <div id="signUpPage" class="grid p-5 items-center justify-center align-center mx-auto max-w-sm rounded-xl h-[500px]">
+  <div id="signUpPage" class="p-5 mt-20 mx-auto max-w-xs rounded-xl h-[500px]">
     <form class="flex flex-col min-w-full">
       <h2 class="mb-6 font-bold text-center text-2xl text-gray-300">Register</h2>
       <input id="signupEmail" class="border border-transparent focus:outline-none focus:ring-2 focus:ring-red-400 bg-gray-800 focus:border-transparent rounded-3xl py-2 px-4 w-full mb-5 focus:caret-gray-100" name="email" type="email" placeholder="Email">
@@ -86,7 +87,7 @@
   </div>
 
   <!-- LOGIN PAGE -->
-  <div id="loginPage" class="grid p-5 items-center justify-center align-center mx-auto max-w-sm rounded-xl h-[500px]">
+  <div id="loginPage" class="p-5 mt-20 mx-auto max-w-xs rounded-xl h-[500px]">
     <form class="flex flex-col min-w-full">
       <h2 class="mb-6 font-bold text-center text-2xl text-gray-300">Login</h2>
       <input id="loginEmail" class="border border-transparent focus:outline-none focus:ring-2 focus:ring-red-400 bg-gray-800 focus:border-transparent rounded-3xl py-2 px-4 w-full mb-5 focus:caret-gray-100" name="email" type="email" placeholder="Email">
@@ -95,10 +96,23 @@
       <button id="submitLoginBtn" class="bg-red-400 hover:bg-red-400 focus:outline-none focus:ring-2 focus:ring-red-400 focus:ring-opacity-50 px-4 py-2 rounded-3xl">
         Log in
       </button>
+
+      <div class="flex flex-row justify-between items-center my-5">
+        <div class="h-[1px] w-full bg-gray-400"></div>
+        <span class="px-2">or</span>
+        <div class="h-[1px] w-full bg-gray-400"></div>
+      </div>
+  
+      <div id="googleLogin" class="g-signin2" data-onsuccess="onSignIn"></div>
     </form>
+
   </div>
 
   <script src="./src/jquery-3.6.0.js"></script>
-  <script type="module" src="./src/app.js"></script>
+  <script src="https://apis.google.com/js/platform.js" async defer></script>
+  <script src="./src/googleSignIn.js"></script>
+  <script src="./src/pages/index.js"></script>
+  <script src="./src/handlers/index.js"></script>
+  <script src="./src/app.js"></script>
 </body>
 </html>

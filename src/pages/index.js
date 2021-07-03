@@ -1,4 +1,4 @@
-export const signupPage = () => {
+const signupPage = () => {
   $('#logoutBtn').hide()
   $('#mainContent').hide()
   $('#welcomeText').hide()
@@ -7,7 +7,7 @@ export const signupPage = () => {
   $('#signUpPage').show()
 }
 
-export const loginPage = () => {
+const loginPage = () => {
   $('#logoutBtn').hide()
   $('#mainContent').hide()
   $('#welcomeText').hide()
@@ -17,7 +17,7 @@ export const loginPage = () => {
   $('#signUpBtn').show()
 }
 
-export const homePage = (email) => {
+const homePage = (email) => {
   $('#logoutBtn').show()
   $('#loginBtn').hide()
   $('#signUpBtn').hide()
@@ -27,6 +27,7 @@ export const homePage = (email) => {
   $('#welcomeText').show()
 
   $('#user').empty()
+  $('#avatar').empty()
 
   // Display name on navbar
   let username = email.split('@')[0]

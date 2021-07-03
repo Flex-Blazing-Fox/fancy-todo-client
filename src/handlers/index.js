@@ -1,6 +1,4 @@
-import { loginPage, homePage } from '../pages'
-
-export const submitRegister = (e) => {
+const submitRegister = (e) => {
   e.preventDefault()
 
   const email = $('#signupEmail').val()
@@ -21,7 +19,7 @@ export const submitRegister = (e) => {
     })
 }
 
-export const submitLogin = (e) => {
+const submitLogin = (e) => {
   e.preventDefault()
 
   const email = $('#loginEmail').val()
@@ -46,7 +44,7 @@ export const submitLogin = (e) => {
     })
 }
 
-export const submitLogout = (e) => {
+const submitLogout = (e) => {
   e.preventDefault()
 
   localStorage.removeItem('access_token')
@@ -56,10 +54,11 @@ export const submitLogout = (e) => {
   $('#user').empty()
   // $('#avatar').empty()
 
+  signOut()
   loginPage()
 }
 
-export const submitAddForm = (e) => {
+const submitAddForm = (e) => {
   e.preventDefault()
 
   let title = $('#inputAddTitle').val()

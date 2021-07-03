@@ -17,15 +17,15 @@
         <div class="col-md-8">
             
             <!--SignIn-->
-            <div class="signIn-form" id="form-signIn">
+            <div class="all-form" id="form-signIn">
                 <form id="formSignIn"> 
                     <h1>Sign In</h1>
                     <div class="form-group">
-                        <input type="email" name="email" id="email-signIn" placeholder="E-mail Address" required>
+                        <input type="email" name="email-signIn" id="email-signIn" placeholder="E-mail Address" required>
                         <span class="input-icon"><i class="fa fa-envelope"></i></span>
                     </div>
                     <div class="form-group">
-                        <input type="password" name="password" id="password-signIn" placeholder="Password" required>
+                        <input type="password" name="password-signIn" id="password-signIn" placeholder="Password" required>
                         <span class="input-icon"><i class="fa fa-lock"></i></span>
                     </div>      
                     
@@ -45,19 +45,19 @@
             <br>
 
             <!--Register-->
-            <div class="signIn-form" id="formRegister">
+            <div class="all-form" id="formRegister">
                 <form id="formSignUp">
                     <h2>Register New Account</h2>
                     <div class="form-group">
-                        <input type="email" name="email" id="email-register" placeholder="E-mail Address">
+                        <input type="email" name="email-register" id="email-register" placeholder="E-mail Address">
                         <span class="input-icon"><i class="fa fa-envelope"></i></span>
                     </div>
                     <div class="form-group">
-                        <input type="password" name="password" id="password-register" placeholder="Password">
+                        <input type="password" name="password-register" id="password-register" placeholder="Password">
                         <span class="input-icon"><i class="fa fa-lock"></i></span>
                     </div>
                     <div class="form-group">
-                        <input type="password" name="password" id="re-password-register" placeholder="Re-Password">
+                        <input type="password" name="re-  password-register" id="re-password-register" placeholder="Re-Password">
                         <span class="input-icon"><i class="fa fa-lock"></i></span>
                     </div>         
                     <p id="message"></p>
@@ -92,17 +92,65 @@
                     <button class="mr-2 btn btn-link btn-sm" id="signOut">
                         SignOut
                     </button>
-                    <button class="btn btn-primary">
+                    <button class="btn btn-primary" id="add">
                         Add Task
                     </button>
                 </div>
             </div>
+            <br>
 
+            <!--Add Todo-->
+            <div class="add-form" id="add-form">
+                <form id="formAddTodo">
+                    <h2>Add New Todo</h2>
+                    <div class="form-group">
+                        <input type="text" name="title-add" id="title-add" placeholder="Title">
+                        <span class="input-icon"><i class="fa fa-tag"></i></span>
+                    </div>
+                    <div class="form-group">
+                        <textarea name="desc-add" id="desc-add" placeholder="Description"></textarea>
+                        <span class="input-icon"><i class="fa fa-tags"></i></span>
+                    </div>       
+                    <div class="form-group">
+                        <input type="date" name="due-date-add" id="due-date-add">
+                        <span class="input-icon"><i class="fa fa-calendar-check-o"></i></span>
+                    </div>  
+                    <button class="add-btn" id="add-btn" >Add</button>     
+                </form>
+            </div>
+            <br>
+
+            <!--Edit Todo-->
+            <div class="add-form" id="edit-form">
+                <form id="formEditTodo">
+                    <h2>Edit Todo</h2>
+                    <div class="form-group">
+                        <input type="text" name="title-edit" id="title-edit">
+                        <span class="input-icon"><i class="fa fa-tag"></i></span>
+                    </div>
+                    <div class="form-group">
+                        <textarea name="desc-edit" id="desc-edit"></textarea>
+                        <span class="input-icon"><i class="fa fa-tags"></i></span>
+                    </div>
+                    <div class="form-group">
+                        <select name="status-edit" id="status-edit"></select>
+                        <span class="input-icon"><i class="fa fa-cog"></i></span>
+                    </div>           
+                    <div class="form-group">
+                        <input type="date" name="due-date-edit" id="due-date-edit">
+                        <span class="input-icon"><i class="fa fa-calendar-check-o"></i></span>
+                    </div>  
+                    <button class="add-btn" id="edit-btn" >Edit</button>     
+                </form>
+            </div>
+            <br>
         </div>
     </div>
     
+
+    <script type='text/javascript' src='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js'></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <script type='text/javascript' src='./script.js'></script>
-    <script type='text/javascript' src='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js'></script>
 </body>
 </html>

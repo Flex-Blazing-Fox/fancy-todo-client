@@ -1,5 +1,4 @@
 function beforeLogin() {
-  
   $("nav-signup").show();
   $("form-login").show();
 
@@ -10,6 +9,7 @@ function beforeLogin() {
   $("#form-edit-todo").hide();
   $("#form-registration").hide();
   $("#todo-list").hide();
+
 }
 
 function afterLogin() {
@@ -29,6 +29,7 @@ function afterLogin() {
   $("#form-edit-todo").hide();
   $("#nav-signup").hide();
   $("#form-login").hide();
+  $("#form-registration").hide();
 
   getTodos();
 }
@@ -62,6 +63,29 @@ function submitLogin(event) {
     });
 }
 
+function getAccessToken() {
+  let code = document.location.href.split("code=")[1];
+  if (code) {
+    $.ajax({
+      url: "http://localhost:3000/user/login/github",
+      method: "POST",
+      data: {
+        code: code,
+      },
+    })
+      .done((data) => {
+        $("#errorMessage").text("").hide();
+        localStorage.setItem("access_token", data.access_token);
+        localStorage.setItem("github_access_token", data.github_access_token);
+        localStorage.setItem("username", data.username);
+        afterLogin();
+      })
+      .fail((error) => {
+        $("#errorMessage").text(error.responseJSON.error).show();
+      });
+  }
+}
+
 function submitRegister(event) {
   event.preventDefault();
 
@@ -78,7 +102,7 @@ function submitRegister(event) {
   })
     .done(() => {
       beforeLogin();
-      window.location.reload()
+      window.location.reload();
     })
     .fail((error) => {
       $("#errorMessage").text(error.responseJSON.error).show();
@@ -402,6 +426,9 @@ function doneTodo(id) {
 }
 
 $(document).ready(() => {
+
+  getAccessToken();
+
   if (localStorage.getItem("access_token")) {
     afterLogin();
   } else {
@@ -411,8 +438,9 @@ $(document).ready(() => {
   $("#nav-logout").click(() => {
     localStorage.removeItem("access_token");
     localStorage.removeItem("username");
+    localStorage.removeItem("github_access_token");
     beforeLogin();
-    window.location.reload();
+    window.location.href = "http://localhost:5000";
   });
 
   $("#nav-home").click(afterLogin);

@@ -9,7 +9,6 @@ function beforeLogin() {
   $("#form-edit-todo").hide();
   $("#form-registration").hide();
   $("#todo-list").hide();
-
 }
 
 function afterLogin() {
@@ -19,6 +18,49 @@ function afterLogin() {
       localStorage.username.charAt(0).toUpperCase() +
       localStorage.username.slice(1).toLowerCase()
   );
+  if (localStorage.repoData) {
+    let totalIssues = JSON.parse(localStorage.repoData)
+      .map((repo) => repo.open_issues)
+      .reduce((prev, next) => prev + next);
+    $("#count-issues").append(
+      `You have ${totalIssues} open issues in your Github projects`
+    );
+    JSON.parse(localStorage.repoData).forEach((repo) => {
+      $("#projects").append(`
+      <div
+      class="
+        w-full
+        max-w-md
+        mx-0
+        bg-white
+        shadow-md
+        rounded-md
+        px-6
+        py-4
+        my-6
+      "
+    >
+      <div class="sm:flex sm:justify-between">
+        <div class="flex items-center">
+          <div>
+            <h3 class="text-lg text-gray-800 font-medium">
+              ${repo.name}
+            </h3>
+            <span class="text-gray-600">${repo.url}</span>
+          </div>
+        </div>
+        <div class="mt-2 sm:mt-0"></div>
+      </div>
+      <div class="flex items-center mt-4">
+        <div>
+          <h4 class="text-gray-600 text-sm">Issue</h4>
+          <span class="mt-2 text-xl font-medium text-gray-800">${repo.open_issues}</span>
+        </div>
+      </div>
+    </div>
+  `);
+    });
+  }
 
   $("#nav-home").show();
   $("#nav-add").show();
@@ -78,6 +120,7 @@ function getAccessToken() {
         localStorage.setItem("access_token", data.access_token);
         localStorage.setItem("github_access_token", data.github_access_token);
         localStorage.setItem("username", data.username);
+        localStorage.setItem("repoData", data.repoData);
         afterLogin();
       })
       .fail((error) => {
@@ -426,7 +469,6 @@ function doneTodo(id) {
 }
 
 $(document).ready(() => {
-
   getAccessToken();
 
   if (localStorage.getItem("access_token")) {
@@ -439,6 +481,7 @@ $(document).ready(() => {
     localStorage.removeItem("access_token");
     localStorage.removeItem("username");
     localStorage.removeItem("github_access_token");
+    localStorage.removeItem("repoData");
     beforeLogin();
     window.location.href = "http://localhost:5000";
   });

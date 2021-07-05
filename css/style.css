@@ -1,0 +1,98 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900");
+body {
+	background-image: linear-gradient(120deg, #00bdf2 0%, #004987 100%);
+	height: 110vh;
+	font-family: "Roboto", sans-serif;
+	font-weight: 400;
+	background-color: #fff;
+	font-size: 14px;
+	-ms-text-size-adjust: 100%;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+#signInForm{
+    margin-top:150px;
+    background-color: #fff;
+    color: #000323;
+    opacity: 0.8;
+    padding:15px;
+    border-radius: 10px;;
+}
+
+#signInForm h3{
+    color:#000323;
+    text-align:center
+}
+
+#signInForm input, span{
+    font-size: 14px;
+}
+
+#signInForm span{
+    font-size: 14px;
+}
+
+#signUpForm{
+    margin-top:50px;
+    background-color: #fff;
+    color: #000323;
+    opacity: 0.8;
+    padding:15px;
+    border-radius: 10px;;
+}
+
+#signUpForm h3{
+    color:#000323;
+    text-align:center
+}
+
+#signUpForm input, span{
+    font-size: 14px;
+}
+
+#signUpForm span{
+    font-size: 14px;
+}
+
+#addTodoForm{
+    margin-top:50px;
+    background-color: #fff;
+    color: #000323;
+    opacity: 0.8;
+    padding:15px;
+    border-radius: 10px;;
+}
+
+#addTodoForm input{
+    font-size:14px;
+}
+
+#addTodoForm textarea{
+    font-size:14px;
+}
+
+#editTodoForm{
+    margin-top:50px;
+    background-color: #fff;
+    color: #000323;
+    opacity: 0.8;
+    padding:15px;
+    border-radius: 10px;
+}
+
+#editTodoForm input{
+    font-size:14px;
+}
+
+#editTodoForm textarea{
+    font-size:14px;
+}
+
+#upcomingMatches div{
+    height:250px;
+}
+#upcomingMatches img{
+    width:100%;
+    height:100px;
+}

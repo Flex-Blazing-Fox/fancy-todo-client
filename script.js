@@ -2,23 +2,23 @@ const format = 'MMMM Do, YYYY'
 const format2 = 'YYYY-MM-DD'
 const today = new Date()
 
-function form_signIn(){
-    $('#form-signIn').show()
+function checkSignIn(){
+    if(localStorage.getItem('access_token')){
+        todos()
+        $('#listTodo').show()
+    
+        $('#form-signIn').hide()
+        $('#formRegister').hide()
+        $('#add-form').hide()
+        $('#edit-form').hide()
+    }else{
+        $('#form-signIn').show()
 
-    $('#formRegister').hide()
-    $('#listTodo').hide()
-    $('#add-form').hide()
-    $('#edit-form').hide()
-}
-
-function afterSignIn(){
-    todos()
-    $('#listTodo').show()
-
-    $('#form-signIn').hide()
-    $('#formRegister').hide()
-    $('#add-form').hide()
-    $('#edit-form').hide()
+        $('#formRegister').hide()
+        $('#listTodo').hide()
+        $('#add-form').hide()
+        $('#edit-form').hide()
+    }
 }
 
 function submitSignIn(event){
@@ -38,9 +38,27 @@ function submitSignIn(event){
         $('#email-signIn').val('')
         $('#password-signIn').val('')
         localStorage.setItem('access_token', result.access_token)
-        afterSignIn()
+        checkSignIn()
     })
 
+    .fail(err=>{
+        console.log(err);
+    })
+}
+
+function onSignIn(googleUser) {
+    const token = googleUser.getAuthResponse().id_token; // This is null if the 'email' scope is not present.
+    $.ajax({
+        url: 'http://localhost:3000/googleSignIn',
+        method: 'POST',
+        data: {
+            token
+        }
+    })
+    .done(result=>{
+        localStorage.setItem('access_token', result.access_token)
+        checkSignIn()
+    })
     .fail(err=>{
         console.log(err);
     })
@@ -51,7 +69,13 @@ function signOut(event){
 
     localStorage.removeItem('access_token')
     $('#todos-ul').html('')
-    form_signIn()
+    checkSignIn()
+
+    //googleSignOut
+    var auth2 = gapi.auth2.getAuthInstance();
+    auth2.signOut().then(function () {
+      console.log('User signed out.');
+    });
 }
 
 function formRegister(){
@@ -76,18 +100,23 @@ function submitRegister(event){
     let email = $('#email-register').val()
     let password = $('#password-register').val()
     $.ajax({
-        url: 'http://localhost:3000/signup',
+        url: 'http://localhost:3000/signUp',
         method: 'POST',
         data: {
             email, password
         }
     })
     .done(data=>{
-        form_signIn()
+        checkSignIn()
     })
     .fail(err=>{
         console.log(err);
     })
+}
+
+function confirmed(event){
+    event.preventDefault()
+
 }
 
 function todos(){
@@ -123,12 +152,17 @@ function todos(){
             due_date = moment(todo.due_date).format(format)
             $('#todos-ul').append(
                 `<li class="list-group-item"> 
-                    
                     <div class="todo-indicator ${bgStatus}">
                     </div>
             
                     <div class="widget-content p-0">
-                        <div class="widget-content-wrapper">                                            
+                        <div class="widget-content-wrapper">
+                            <div class="widget-content-left mr-2">
+                                <div class="custom-checkbox custom-control">
+                                    <input class="custom-control-input" id="checklist-${todo.id}" type="checkbox">
+                                    <label class="custom-control-label" for="checklist-${todo.id}">&nbsp;</label>
+                                </div>
+                            </div>
                             <div class="widget-content-left">
                                 <div class="widget-heading">
                                     ${todo.title}   
@@ -195,7 +229,7 @@ function submitAddTodo(event){
         $('#desc-add').val('')
         $('#due-date-add').val('')
 
-        afterSignIn()
+        todos()
     })
     .fail(err=>{
         console.log(err);
@@ -229,7 +263,7 @@ function formEditTodo(id){
         $('#due-date-edit').val(due_date)
         const status = ['New', 'On Progress', 'Done']
         let statusOpt
-        statusOpt += `<option value="${todo.status}" selected>${todo.status}</option> `
+        statusOpt += `<option value="${todo.status}" default selected>${todo.status}</option> `
         status.forEach(el=>{
             if(el !== todo.status)
             statusOpt += `<option value="${el}">${el}</option> `
@@ -246,6 +280,7 @@ function formEditTodo(id){
         event.preventDefault()
         submitEditTodo(id)
     })
+    $('#cancel-edit-btn').click(checkSignIn)
 }
 
 function submitEditTodo(id){
@@ -264,7 +299,7 @@ function submitEditTodo(id){
         }
     })
     .done(_ =>{
-        afterSignIn()
+        todos()
     })
     .fail(err=>{
         console.log(err);
@@ -280,8 +315,8 @@ function deleteTodo(id){
         }
     })
     .done(_=>{
-        console.log('Brhasil Delete');
-        afterSignIn()
+        console.log('Berhasil Delete');
+        todos()
     })
     .fail(err=>{
         console.log(fail);
@@ -289,13 +324,10 @@ function deleteTodo(id){
 }
 
 $(document).ready(function (){
-    if(localStorage.getItem('access_token')){
-        afterSignIn()
-    }else{
-        form_signIn()
-    }
+    checkSignIn()
     $('#register').click(formRegister)
-    $('#signIn').click(form_signIn)
+    $('#signIn').click(checkSignIn)
+    $('#googleSignIn').click(onSignIn)
     $('#formSignIn').submit(submitSignIn)
     $('#signOut').click(signOut)
     $('#formSignUp').submit(submitRegister)

@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google-signin-client_id" content="579601506754-ni2ge2l5lr2sav8fr8u4ed3coadtmoe0.apps.googleusercontent.com">
     
     <title>To.DO</title>
     <link href='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css' rel='stylesheet'>
@@ -36,10 +37,13 @@
                     <p>Sign in with your social media account</p>
                   
                     <!-- Social signIn buttons -->
+                    <!-- Social signIn buttons 
                     <div class="social-icon">
-                        <button type="button"><i class="fa fa-twitter"></i></button>
-                        <button type="button"><i class="fa fa-facebook"></i></button>
+                    <button type="button"><i class="fa fa-facebook"></i></button>
+                    </div> -->
+                    <div class="g-signin2" data-onsuccess="onSignIn">
                     </div>
+                    
                 </form>
             </div>
             <br>
@@ -62,7 +66,7 @@
                     </div>         
                     <p id="message"></p>
                     <button class="register-btn" id="btn-register" >Register</button>
-                    <a class="signIn" id="signIn" href="#">Already An Account? Sign In</a>      
+                    <a class="signIn" id="signIn" href="#">Already An Account? Sign In</a>
                 </form>
             </div>
             <br>
@@ -140,7 +144,8 @@
                         <input type="date" name="due-date-edit" id="due-date-edit">
                         <span class="input-icon"><i class="fa fa-calendar-check-o"></i></span>
                     </div>  
-                    <button class="add-btn" id="edit-btn" >Edit</button>     
+                    <button class="add-btn" id="edit-btn" >Edit</button><br>    <br>
+                    <button class="add-btn" id="cancel-edit-btn" >Cancel</button>       
                 </form>
             </div>
             <br>
@@ -148,6 +153,7 @@
     </div>
     
 
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
     <script type='text/javascript' src='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js'></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>

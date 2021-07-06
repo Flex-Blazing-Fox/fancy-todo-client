@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google-signin-client_id" content="579601506754-ni2ge2l5lr2sav8fr8u4ed3coadtmoe0.apps.googleusercontent.com">
+    
+    <title>To.DO</title>
+    <link href='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css' rel='stylesheet'>
+    <link href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css' rel='stylesheet'>
+    <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+    <link rel="stylesheet" href="./assets/style.css">
+</head>
+<body>
+<body>
+    <div class="row d-flex justify-content-center container">
+        <div class="col-md-8">
+            
+            <!--SignIn-->
+            <div class="all-form" id="form-signIn">
+                <form id="formSignIn"> 
+                    <h1>Sign In</h1>
+                    <div class="form-group">
+                        <input type="email" name="email-signIn" id="email-signIn" placeholder="E-mail Address" required>
+                        <span class="input-icon"><i class="fa fa-envelope"></i></span>
+                    </div>
+                    <div class="form-group">
+                        <input type="password" name="password-signIn" id="password-signIn" placeholder="Password" required>
+                        <span class="input-icon"><i class="fa fa-lock"></i></span>
+                    </div>      
+                    
+                    <button class="signIn-btn">Sign In</button>      
+                    <a class="register" id="register" href="#">Register New Account</a>
+                    <div class="seperator"><b>or</b>
+                    </div>
+                    <p>Sign in with your social media account</p>
+                  
+                    <!-- Social signIn buttons -->
+                    <!-- Social signIn buttons 
+                    <div class="social-icon">
+                    <button type="button"><i class="fa fa-facebook"></i></button>
+                    </div> -->
+                    <div class="g-signin2" data-onsuccess="onSignIn">
+                    </div>
+                    
+                </form>
+            </div>
+            <br>
+
+            <!--Register-->
+            <div class="all-form" id="formRegister">
+                <form id="formSignUp">
+                    <h2>Register New Account</h2>
+                    <div class="form-group">
+                        <input type="email" name="email-register" id="email-register" placeholder="E-mail Address">
+                        <span class="input-icon"><i class="fa fa-envelope"></i></span>
+                    </div>
+                    <div class="form-group">
+                        <input type="password" name="password-register" id="password-register" placeholder="Password">
+                        <span class="input-icon"><i class="fa fa-lock"></i></span>
+                    </div>
+                    <div class="form-group">
+                        <input type="password" name="re-  password-register" id="re-password-register" placeholder="Re-Password">
+                        <span class="input-icon"><i class="fa fa-lock"></i></span>
+                    </div>         
+                    <p id="message"></p>
+                    <button class="register-btn" id="btn-register" >Register</button>
+                    <a class="signIn" id="signIn" href="#">Already An Account? Sign In</a>
+                </form>
+            </div>
+            <br>
+
+
+            <!--List-->
+            <div class="card-hover-shadow-2x mb-3 card" id="listTodo">
+                <div class="card-header-tab card-header">
+                    <div class="card-header-title font-size-lg text-capitalize font-weight-normal">
+                        <i class="fa fa-tasks"></i>&nbsp;To.DO Lists
+                    </div>
+                </div>
+
+                <div class="scroll-area-sm">
+                    <perfect-scrollbar class="ps-show-limits">
+                    <div style="position: static;" class="ps ps--active-y">
+                        <div class="ps-content">
+                            <ul class=" list-group list-group-flush" id="todos-ul">
+                                
+                            </ul>
+                        </div>
+                    </div>
+                    </perfect-scrollbar>
+                </div>
+
+                <div class="d-block text-right card-footer">
+                    <button class="mr-2 btn btn-link btn-sm" id="signOut">
+                        SignOut
+                    </button>
+                    <button class="btn btn-primary" id="add">
+                        Add Task
+                    </button>
+                </div>
+            </div>
+            <br>
+
+            <!--Add Todo-->
+            <div class="add-form" id="add-form">
+                <form id="formAddTodo">
+                    <h2>Add New Todo</h2>
+                    <div class="form-group">
+                        <input type="text" name="title-add" id="title-add" placeholder="Title">
+                        <span class="input-icon"><i class="fa fa-tag"></i></span>
+                    </div>
+                    <div class="form-group">
+                        <textarea name="desc-add" id="desc-add" placeholder="Description"></textarea>
+                        <span class="input-icon"><i class="fa fa-tags"></i></span>
+                    </div>       
+                    <div class="form-group">
+                        <input type="date" name="due-date-add" id="due-date-add">
+                        <span class="input-icon"><i class="fa fa-calendar-check-o"></i></span>
+                    </div>  
+                    <button class="add-btn" id="add-btn" >Add</button>     
+                </form>
+            </div>
+            <br>
+
+            <!--Edit Todo-->
+            <div class="add-form" id="edit-form">
+                <form id="formEditTodo">
+                    <h2>Edit Todo</h2>
+                    <div class="form-group">
+                        <input type="text" name="title-edit" id="title-edit">
+                        <span class="input-icon"><i class="fa fa-tag"></i></span>
+                    </div>
+                    <div class="form-group">
+                        <textarea name="desc-edit" id="desc-edit"></textarea>
+                        <span class="input-icon"><i class="fa fa-tags"></i></span>
+                    </div>
+                    <div class="form-group">
+                        <select name="status-edit" id="status-edit"></select>
+                        <span class="input-icon"><i class="fa fa-cog"></i></span>
+                    </div>           
+                    <div class="form-group">
+                        <input type="date" name="due-date-edit" id="due-date-edit">
+                        <span class="input-icon"><i class="fa fa-calendar-check-o"></i></span>
+                    </div>  
+                    <button class="add-btn" id="edit-btn" >Edit</button><br>    <br>
+                    <button class="add-btn" id="cancel-edit-btn" >Cancel</button>       
+                </form>
+            </div>
+            <br>
+        </div>
+    </div>
+    
+
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <script type='text/javascript' src='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js'></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script type='text/javascript' src='./script.js'></script>
+</body>
+</html>

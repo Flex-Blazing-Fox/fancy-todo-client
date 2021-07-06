@@ -1,0 +1,513 @@
+body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    font-size: 0.88rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    text-align: left;
+    background-color: #099e9e
+}
+
+i {
+    font-style: italic
+}
+
+.container {
+    margin-top: 100px
+}
+
+.card {
+    box-shadow: 0 0.46875rem 2.1875rem rgba(4, 9, 20, 0.03), 0 0.9375rem 1.40625rem rgba(4, 9, 20, 0.03), 0 0.25rem 0.53125rem rgba(4, 9, 20, 0.05), 0 0.125rem 0.1875rem rgba(4, 9, 20, 0.03);
+    border-width: 0;
+    transition: all .2s
+}
+
+.card-header:first-child {
+    border-radius: calc(0.25rem - 1px) calc(0.25rem - 1px) 0 0
+}
+
+.card-header {
+    display: flex;
+    align-items: center;
+    border-bottom-width: 1px;
+    padding-top: 0;
+    padding-bottom: 0;
+    padding-right: 0.625rem;
+    height: 3.5rem;
+    background-color: #fff
+}
+
+.widget-subheading {
+    color: #858a8e;
+    font-size: 10px
+}
+
+.card-header.card-header-tab .card-header-title {
+    display: flex;
+    align-items: center;
+    white-space: nowrap
+}
+
+.card-header .header-icon {
+    font-size: 1.65rem;
+    margin-right: 0.625rem
+}
+
+.card-header.card-header-tab .card-header-title {
+    display: flex;
+    align-items: center;
+    white-space: nowrap
+}
+
+.btn-actions-pane-right {
+    margin-left: auto;
+    white-space: nowrap
+}
+
+.text-capitalize {
+    text-transform: capitalize !important
+}
+
+.scroll-area-sm {
+    height: 288px;
+    overflow-x: hidden
+}
+
+.list-group-item {
+    position: relative;
+    display: block;
+    padding: 0.75rem 1.25rem;
+    margin-bottom: -1px;
+    background-color: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.125)
+}
+
+.list-group {
+    display: flex;
+    flex-direction: column;
+    padding-left: 0;
+    margin-bottom: 0
+}
+
+.todo-indicator {
+    position: absolute;
+    width: 4px;
+    height: 60%;
+    border-radius: 0.3rem;
+    left: 0.625rem;
+    top: 20%;
+    opacity: .6;
+    transition: opacity .2s
+}
+
+.bg-warning {
+    background-color: #f7b924 !important
+}
+
+.widget-content {
+    padding: 1rem;
+    flex-direction: row;
+    align-items: center
+}
+
+.widget-content .widget-content-wrapper {
+    display: flex;
+    flex: 1;
+    position: relative;
+    align-items: center
+}
+
+.widget-content .widget-content-right.widget-content-actions {
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity .2s
+}
+
+.widget-content .widget-content-right {
+    margin-left: auto
+}
+
+.btn:not(:disabled):not(.disabled) {
+    cursor: pointer
+}
+
+.btn {
+    position: relative;
+    transition: color 0.15s, background-color 0.15s, border-color 0.15s, box-shadow 0.15s
+}
+
+.btn-outline-success {
+    color: #3ac47d;
+    border-color: #3ac47d
+}
+
+.btn-outline-success:hover {
+    color: #fff;
+    background-color: #3ac47d;
+    border-color: #3ac47d
+}
+
+.btn-outline-success:hover {
+    color: #fff;
+    background-color: #3ac47d;
+    border-color: #3ac47d
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #3f6ad8;
+    border-color: #3f6ad8
+}
+
+.btn {
+    position: relative;
+    transition: color 0.15s, background-color 0.15s, border-color 0.15s, box-shadow 0.15s;
+    outline: none !important
+}
+
+.card-footer {
+    background-color: #fff
+}
+
+.all-form h1{
+  font-size: 36px;
+  text-align: center;
+  color: #45aba6;
+  margin-bottom: 30px;
+  font-weight: normal;
+}
+.all-form h2{
+    font-size: 24px;
+    text-align: center;
+    color: #45aba6;
+    margin-bottom: 30px;
+    font-weight: normal;
+  }
+.all-form .social-icon {
+    width: 100%;
+    font-size: 20px;
+    padding-top: 20px;
+    color: #fff;
+    text-align: center;
+    float: left;
+}
+.all-form {
+    background: #fff;
+    width: 450px;
+    border-radius: 6px;
+    margin: 0 auto;
+    display: table;
+    padding: 15px 30px 30px;
+    box-sizing: border-box;
+}
+.form-group {
+    float: left;
+    width: 100%;
+    margin: 0 0 15px;
+    position: relative;
+  }
+.all-form input {
+    width: 100%;
+    padding: 5px;
+    height: 56px;
+    border-radius: 74px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    font-size: 15px;
+    padding-left: 75px;
+}
+.all-form textarea {
+    width: 100%;
+    padding: 5px;
+    height: 106px;
+    border-radius: 74px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    font-size: 15px;
+    padding-left: 75px;
+}
+.all-form select {
+    width: 100%;
+    padding: 5px;
+    height: 56px;
+    border-radius: 74px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    font-size: 15px;
+    padding-left: 75px;
+}
+.all-form .form-group .input-icon {
+    font-size: 15px;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    align-items: center;
+    position: absolute;
+    border-radius: 25px;
+    bottom: 0;
+    height: 100%;
+    padding-left: 35px;
+    color: #666;
+}
+.all-form .form-group .textarea-icon {
+    font-size: 15px;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    align-items: center;
+    position: absolute;
+    border-radius: 25px;
+    bottom: 0;
+    height: 100%;
+    padding-left: 35px;
+    color: #666;
+}
+.all-form .signIn-btn {
+  background: #45aba6;
+  padding: 11px 50px;
+  border-color: #45aba6;
+  color: #fff;
+  text-align: center;
+  margin: 0 auto;
+  font-size: 20px;
+  border: 1px solid #45aba6;
+  border-radius: 44px;
+  width: 100%;
+  height: 56px;
+  cursor: pointer;
+}
+.all-form .register-btn {
+    background: #45aba6;
+    padding: 11px 50px;
+    border-color: #45aba6;
+    color: #fff;
+    text-align: center;
+    margin: 0 auto;
+    font-size: 20px;
+    border: 1px solid #45aba6;
+    border-radius: 44px;
+    width: 100%;
+    height: 56px;
+    cursor: pointer;
+  }
+  .all-form .add-btn {
+    background: #45aba6;
+    padding: 11px 50px;
+    border-color: #45aba6;
+    color: #fff;
+    text-align: center;
+    margin: 0 auto;
+    font-size: 20px;
+    border: 1px solid #45aba6;
+    border-radius: 44px;
+    width: 100%;
+    height: 56px;
+    cursor: pointer;
+  }
+.all-form .register {
+  float: left;
+  width: 100%;
+  text-decoration: none;
+  color: #45aba6;
+  font-size: 14px;
+  text-align: center;
+  margin-top: 11px;
+}
+.all-form .signIn {
+    float: left;
+    width: 100%;
+    text-decoration: none;
+    color: #45aba6;
+    font-size: 14px;
+    text-align: center;
+    margin-top: 11px;
+  }
+.all-form .social-icon button {
+    font-size: 20px;
+    color: white;
+    height: 50px;
+    width: 50px;
+    background: #45aba6;
+    border-radius: 60%;
+    margin: 0px 10px;
+    border: none;
+    cursor: pointer;
+}
+.all-form button:hover{
+  opacity: 0.9;
+}
+.all-form .seperator {
+  float: left;
+  width: 100%;
+  border-top: 1px solid #ccc;
+  text-align: center;
+  margin: 50px 0 0;
+}
+.all-form .seperator b {
+  width: 40px;
+  height: 40px;
+  font-size: 16px;
+  text-align: center;
+  line-height: 40px;
+  background: #fff;
+  display: inline-block;
+  border: 1px solid #e0e0e0;
+  border-radius: 50%;
+  position: relative;
+  top: -22px;
+  z-index: 1;
+}
+.all-form p {
+  float: left;
+  width: 100%;
+  text-align: center;
+  font-size: 16px;
+  margin: 0 0 10px;
+}
+
+
+.add-form h1{
+  font-size: 36px;
+  text-align: center;
+  color: #45aba6;
+  margin-bottom: 30px;
+  font-weight: normal;
+}
+.add-form h2{
+    font-size: 24px;
+    text-align: center;
+    color: #45aba6;
+    margin-bottom: 30px;
+    font-weight: normal;
+  }
+.add-form {
+    background: #fff;
+    width: 450px;
+    border-radius: 6px;
+    margin: 0 auto;
+    display: table;
+    padding: 15px 30px 30px;
+    box-sizing: border-box;
+}
+.form-group {
+    float: left;
+    width: 100%;
+    margin: 0 0 15px;
+    position: relative;
+  }
+.add-form input {
+    width: 100%;
+    padding: 5px;
+    height: 56px;
+    border-radius: 74px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    font-size: 15px;
+    padding-left: 75px;
+}
+.add-form textarea {
+    width: 100%;
+    padding: 5px;
+    height: 106px;
+    border-radius: 74px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    font-size: 15px;
+    padding-left: 75px;
+}
+.add-form select {
+    width: 100%;
+    padding: 5px;
+    height: 56px;
+    border-radius: 74px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    font-size: 15px;
+    padding-left: 75px;
+}
+.add-form .form-group .input-icon {
+    font-size: 15px;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    align-items: center;
+    position: absolute;
+    border-radius: 25px;
+    bottom: 0;
+    height: 100%;
+    padding-left: 35px;
+    color: #666;
+}
+.add-form .form-group .textarea-icon {
+    font-size: 15px;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    align-items: center;
+    position: absolute;
+    border-radius: 25px;
+    bottom: 0;
+    height: 100%;
+    padding-left: 35px;
+    color: #666;
+}
+.add-form .add-btn {
+    background: #45aba6;
+    padding: 11px 50px;
+    border-color: #45aba6;
+    color: #fff;
+    text-align: center;
+    margin: 0 auto;
+    font-size: 20px;
+    border: 1px solid #45aba6;
+    border-radius: 44px;
+    width: 100%;
+    height: 56px;
+    cursor: pointer;
+  }
+.add-form button:hover{
+  opacity: 0.9;
+}
+.add-form .seperator {
+  float: left;
+  width: 100%;
+  border-top: 1px solid #ccc;
+  text-align: center;
+  margin: 50px 0 0;
+}
+.add-form .seperator b {
+  width: 40px;
+  height: 40px;
+  font-size: 16px;
+  text-align: center;
+  line-height: 40px;
+  background: #fff;
+  display: inline-block;
+  border: 1px solid #e0e0e0;
+  border-radius: 50%;
+  position: relative;
+  top: -22px;
+  z-index: 1;
+}
+.add-form p {
+  float: left;
+  width: 100%;
+  text-align: center;
+  font-size: 16px;
+  margin: 0 0 10px;
+}
+@media screen and (max-width:767px) {
+.all-form {
+    width: 90%;
+    padding: 15px 15px 30px;
+}
+}
